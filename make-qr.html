@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>QR Code Generator — Arangetram Website</title>
+<style>
+  body {
+    font-family: Georgia, serif;
+    background: #5a0a14;
+    color: #f5e6c8;
+    margin: 0;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+  h1 { color: #f0c44c; font-weight: normal; }
+  .card {
+    background: #fffaf0;
+    color: #2a0508;
+    max-width: 460px;
+    margin: 1.5rem auto;
+    padding: 1.8rem;
+    border-radius: 10px;
+    border: 3px solid #d4a017;
+  }
+  input {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border: 1.5px solid #d4a017;
+    border-radius: 6px;
+    margin: 0.6rem 0 1rem;
+    box-sizing: border-box;
+  }
+  button {
+    background: #5a0a14;
+    color: #f0c44c;
+    border: 1.5px solid #d4a017;
+    padding: 0.7rem 1.6rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    letter-spacing: 0.05em;
+  }
+  button:hover { background: #3d060d; }
+  #qrcode { margin: 1.5rem auto 0; display: inline-block; padding: 16px; background: #fff; border-radius: 8px; }
+  #qrcode img, #qrcode canvas { display: block; }
+  .hint { font-size: 0.9rem; opacity: 0.85; }
+  a.dl { display: inline-block; margin-top: 1rem; color: #5a0a14; font-weight: bold; }
+  label { font-weight: bold; }
+</style>
+</head>
+<body>
+  <h1>🪔 Arangetram QR Code Generator 🪔</h1>
+  <div class="card">
+    <label for="url">Website address (URL):</label>
+    <input id="url" type="text" placeholder="https://yourname.github.io/arangetram/" />
+    <button onclick="makeQR()">Generate QR Code</button>
+    <div id="qrcode"></div>
+    <a id="download" class="dl" style="display:none">⬇ Download QR code (PNG)</a>
+  </div>
+  <p class="hint">Type your final published website URL above and click Generate.<br/>
+  Then right-click the QR or use the download link to save it for printing.</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script>
+    let qr;
+    function makeQR() {
+      const url = document.getElementById('url').value.trim();
+      const box = document.getElementById('qrcode');
+      const dl = document.getElementById('download');
+      box.innerHTML = '';
+      if (!url) { alert('Please enter a URL first.'); return; }
+      qr = new QRCode(box, {
+        text: url,
+        width: 320,
+        height: 320,
+        colorDark: "#5a0a14",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+      setTimeout(() => {
+        const img = box.querySelector('img') || box.querySelector('canvas');
+        if (img) {
+          const src = img.tagName === 'IMG' ? img.src : img.toDataURL('image/png');
+          dl.href = src;
+          dl.download = 'arangetram-qr.png';
+          dl.style.display = 'inline-block';
+        }
+      }, 250);
+    }
+  </script>
+</body>
+</html>

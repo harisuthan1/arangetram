@@ -1,0 +1,379 @@
+/* ===========================================================
+   Bharatanatyam Arangetram — Classic Temple (Maroon & Gold)
+   =========================================================== */
+
+:root {
+  --maroon:        #5a0a14;
+  --maroon-deep:   #3d060d;
+  --maroon-soft:   #6e1420;
+  --gold:          #d4a017;
+  --gold-bright:   #f0c44c;
+  --gold-pale:     #f5e6c8;
+  --cream:         #fdf6e9;
+  --ink:           #2a0508;
+  --rule:          rgba(212, 160, 23, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(212,160,23,0.06), transparent 60%);
+}
+
+/* ---------- Decorative temple borders ---------- */
+.temple-border {
+  height: 14px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--maroon) 0 18px,
+      var(--gold) 18px 22px,
+      var(--maroon) 22px 40px
+    );
+  border-bottom: 3px solid var(--gold);
+}
+.temple-border.bottom { border-bottom: none; border-top: 3px solid var(--gold); }
+
+/* =================== HERO =================== */
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 20%, var(--maroon-soft), var(--maroon) 55%, var(--maroon-deep) 100%);
+  color: var(--gold-pale);
+  text-align: center;
+  padding: 4.5rem 1.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px double var(--gold);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 2px solid var(--rule);
+  border-radius: 4px;
+  pointer-events: none;
+}
+.hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+
+.lamp {
+  font-size: 2.6rem;
+  filter: drop-shadow(0 0 14px rgba(240,196,76,0.7));
+}
+.lamp-left, .lamp-right {
+  position: absolute;
+  top: -1rem;
+}
+.lamp-left  { left: 0; }
+.lamp-right { right: 0; }
+
+.gurukul {
+  font-family: "Marcellus", serif;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--gold-bright);
+  margin: 0.5rem 0 0;
+}
+.presents {
+  font-style: italic;
+  color: var(--gold-pale);
+  opacity: 0.85;
+  margin: 0.3rem 0 0.8rem;
+  font-size: 1.05rem;
+}
+.title {
+  font-family: "Marcellus", serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--gold-bright);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+.title-script {
+  font-family: "Yatra One", cursive;
+  font-size: clamp(2.8rem, 8vw, 4.6rem);
+  color: #fff;
+  display: inline-block;
+  margin-top: 0.2rem;
+}
+.of {
+  font-style: italic;
+  margin: 0.8rem 0 0.2rem;
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+.dancer-name {
+  font-family: "Yatra One", cursive;
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  margin: 0.2rem 0;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+}
+.disciple {
+  font-size: 1.25rem;
+  color: var(--gold-pale);
+  margin: 0.4rem 0 0;
+}
+
+.event-card {
+  margin: 2.6rem auto 0;
+  max-width: 540px;
+  display: flex;
+  align-items: stretch;
+  gap: 1.4rem;
+  background: rgba(0,0,0,0.18);
+  border: 1.5px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+}
+.event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 1.4rem;
+  border-right: 1.5px solid var(--rule);
+  min-width: 116px;
+}
+.event-date .day {
+  font-family: "Marcellus", serif;
+  font-size: 3.6rem;
+  line-height: 1;
+  color: var(--gold-bright);
+}
+.event-date .month {
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+  color: #fff;
+}
+.event-date .weekday {
+  font-size: 0.85rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+  opacity: 0.8;
+}
+.event-venue { display: flex; flex-direction: column; justify-content: center; }
+.event-venue p { margin: 0.1rem 0; font-size: 1.05rem; color: var(--gold-pale); }
+.event-venue .venue-name { font-weight: 600; color: #fff; font-size: 1.15rem; }
+
+/* =================== NAVBAR =================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.8rem;
+  background: var(--maroon-deep);
+  border-bottom: 2px solid var(--gold);
+  padding: 0.85rem 1rem;
+}
+.navbar a {
+  font-family: "Marcellus", serif;
+  color: var(--gold-pale);
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.navbar a:hover { color: var(--gold-bright); }
+
+/* =================== SECTIONS =================== */
+.section {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3.6rem 1.5rem;
+}
+.section.alt {
+  max-width: none;
+  background: linear-gradient(180deg, #fbeed3, #f7e3bc);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.section.alt > * { max-width: 880px; margin-left: auto; margin-right: auto; }
+
+.section-title {
+  font-family: "Yatra One", cursive;
+  font-weight: 400;
+  text-align: center;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--maroon);
+  margin: 0;
+}
+.divider {
+  text-align: center;
+  color: var(--gold);
+  letter-spacing: 0.5em;
+  font-size: 0.9rem;
+  margin: 0.6rem 0 2.4rem;
+}
+
+/* ---------- Repertoire items ---------- */
+.items { display: flex; flex-direction: column; gap: 1.6rem; }
+.item {
+  background: #fffaf0;
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--gold);
+  border-radius: 6px;
+  padding: 1.4rem 1.7rem;
+  box-shadow: 0 3px 14px rgba(90,10,20,0.06);
+}
+.item.highlight {
+  border-left-color: var(--maroon);
+  background: linear-gradient(180deg, #fffaf0, #fbeed8);
+}
+.item h3 {
+  font-family: "Marcellus", serif;
+  color: var(--maroon);
+  font-size: 1.55rem;
+  margin: 0 0 0.5rem;
+}
+.item p { margin: 0 0 0.6rem; }
+.item .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--maroon-soft);
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.7rem;
+  margin-top: 0.8rem;
+}
+
+.intermission {
+  text-align: center;
+  font-family: "Yatra One", cursive;
+  color: var(--maroon);
+  font-size: 1.6rem;
+  padding: 0.8rem 0;
+  position: relative;
+}
+.intermission span { background: var(--cream); padding: 0 1.2rem; position: relative; z-index: 1; }
+.intermission::before {
+  content: "";
+  position: absolute;
+  left: 10%; right: 10%; top: 50%;
+  border-top: 2px solid var(--rule);
+}
+.section.alt .intermission span { background: transparent; }
+.intermission.mangalam span { color: var(--gold); }
+
+/* ---------- Prose ---------- */
+.prose p { margin: 0 0 1.2rem; }
+.prose h3 {
+  font-family: "Marcellus", serif;
+  color: var(--maroon);
+  font-size: 1.4rem;
+  margin: 1.6rem 0 0.6rem;
+}
+.prose.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+}
+.prose.two-col h3 { margin-top: 0; }
+
+.orchestra article {
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.4rem;
+}
+.orchestra article:last-child { border-bottom: none; }
+.orchestra h3 .role {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-left: 0.6rem;
+}
+
+/* ---------- Credits ---------- */
+.credits {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 520px;
+}
+.credits li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.credits .credit-role {
+  font-family: "Marcellus", serif;
+  color: var(--maroon);
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Gallery ---------- */
+.gallery-note { text-align: center; font-style: italic; color: var(--maroon-soft); margin-top: -1.2rem; }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+}
+.gallery a {
+  display: block;
+  border: 3px solid var(--gold);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(90,10,20,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.gallery a:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(90,10,20,0.25); }
+.gallery img { width: 100%; height: 100%; display: block; }
+
+/* =================== FOOTER =================== */
+footer {
+  background: var(--maroon-deep);
+  color: var(--gold-pale);
+  text-align: center;
+  padding: 2.8rem 1.5rem;
+}
+footer .lamp { font-size: 2rem; }
+footer p { margin: 0.25rem 0; }
+.footer-title {
+  font-family: "Yatra One", cursive;
+  font-size: 1.6rem;
+  color: var(--gold-bright);
+}
+.footer-sub { font-size: 0.95rem; opacity: 0.75; letter-spacing: 0.08em; }
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 640px) {
+  body { font-size: 1.08rem; }
+  .event-card { flex-direction: column; }
+  .event-date {
+    border-right: none;
+    border-bottom: 1.5px solid var(--rule);
+    padding-right: 0;
+    padding-bottom: 1rem;
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+  .event-date .day { font-size: 2.6rem; }
+  .prose.two-col { grid-template-columns: 1fr; gap: 1rem; }
+  .lamp-left, .lamp-right { display: none; }
+}
