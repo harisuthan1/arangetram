@@ -330,11 +330,27 @@ body {
 .prose.two-col h3 { margin-top: 0; }
 
 .orchestra article {
+  display: flex;
+  gap: 1.7rem;
+  align-items: flex-start;
   border-bottom: 1px dashed var(--rule);
   padding-bottom: 1.4rem;
   margin-bottom: 1.4rem;
 }
+.orchestra article:nth-child(even) { flex-direction: row-reverse; }
 .orchestra article:last-child { border-bottom: none; }
+.musician-photo {
+  flex: 0 0 auto;
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--gold);
+  box-shadow: 0 5px 16px rgba(90,10,20,0.28), 0 0 0 1px rgba(94,67,10,0.45);
+  background: #fff;
+}
+.musician-text { flex: 1 1 auto; }
+.musician-text h3 { margin-top: 0; }
 .orchestra h3 .role {
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
@@ -415,4 +431,9 @@ footer p { margin: 0.25rem 0; }
   .event-date .day { font-size: 2.6rem; }
   .prose.two-col { grid-template-columns: 1fr; gap: 1rem; }
   .hero-lamp { display: none; }
+  .orchestra article,
+  .orchestra article:nth-child(even) { flex-direction: column; align-items: center; }
+  .musician-photo { width: 140px; height: 140px; }
+  .musician-text { width: 100%; }
+  .musician-text h3 { text-align: center; }
 }
