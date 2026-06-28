@@ -12,14 +12,67 @@
 </head>
 <body>
 
+<!-- ===== Reusable decorative brass oil lamp (kuthuvilakku) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8de86"/>
+      <stop offset="0.45" stop-color="#d4a017"/>
+      <stop offset="1" stop-color="#7e5b0d"/>
+    </linearGradient>
+    <linearGradient id="brassH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a6310"/>
+      <stop offset="0.5" stop-color="#f8de86"/>
+      <stop offset="1" stop-color="#8a6310"/>
+    </linearGradient>
+    <radialGradient id="flameGrad" cx="0.5" cy="0.72" r="0.75">
+      <stop offset="0" stop-color="#fff7cf"/>
+      <stop offset="0.38" stop-color="#ffd54a"/>
+      <stop offset="0.78" stop-color="#ff7d18"/>
+      <stop offset="1" stop-color="#e23a0a"/>
+    </radialGradient>
+    <radialGradient id="lampGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd96a" stop-opacity="0.75"/>
+      <stop offset="0.6" stop-color="#ffb347" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+
+    <symbol id="vilakku" viewBox="0 0 100 220">
+      <!-- tiered base -->
+      <ellipse cx="50" cy="207" rx="40" ry="9"  fill="url(#brassH)" stroke="#5e430a" stroke-width="1"/>
+      <ellipse cx="50" cy="197" rx="29" ry="7"  fill="url(#brass)"  stroke="#5e430a" stroke-width="0.8"/>
+      <path d="M31 197 Q50 178 69 197 Z"          fill="url(#brass)"  stroke="#5e430a" stroke-width="0.8"/>
+      <ellipse cx="50" cy="184" rx="17" ry="5"  fill="url(#brassH)" stroke="#5e430a" stroke-width="0.7"/>
+      <!-- stem with decorative knobs -->
+      <path d="M45 184 L43 151 L57 151 L55 184 Z" fill="url(#brassH)" stroke="#5e430a" stroke-width="0.6"/>
+      <ellipse cx="50" cy="151" rx="11" ry="8"  fill="url(#brass)"  stroke="#5e430a" stroke-width="0.7"/>
+      <path d="M44 151 L42 126 L58 126 L56 151 Z" fill="url(#brassH)" stroke="#5e430a" stroke-width="0.6"/>
+      <ellipse cx="50" cy="126" rx="9"  ry="6"  fill="url(#brass)"  stroke="#5e430a" stroke-width="0.7"/>
+      <path d="M44 126 L42 106 L58 106 L56 126 Z" fill="url(#brassH)" stroke="#5e430a" stroke-width="0.6"/>
+      <!-- oil dish (lotus) with side spouts -->
+      <path d="M8 97 Q13 103 19 101 Z"            fill="url(#brass)"  stroke="#5e430a" stroke-width="0.6"/>
+      <path d="M92 97 Q87 103 81 101 Z"           fill="url(#brass)"  stroke="#5e430a" stroke-width="0.6"/>
+      <path d="M17 99 Q50 85 83 99 Q75 113 50 113 Q25 113 17 99 Z" fill="url(#brass)" stroke="#5e430a" stroke-width="0.9"/>
+      <ellipse cx="50" cy="99" rx="32" ry="4.5" fill="#6f5009" opacity="0.45"/>
+      <!-- glow + flames -->
+      <ellipse class="lamp-glow" cx="50" cy="82" rx="38" ry="30" fill="url(#lampGlow)"/>
+      <g class="flame f1"><path d="M29 97 C24 88.45, 27 81.8, 29 78 C31 81.8, 34 88.45, 29 97 Z" fill="url(#flameGrad)"/></g>
+      <g class="flame f2"><path d="M39 96 C33 84.3, 36.6 75.2, 39 70 C41.4 75.2, 45 84.3, 39 96 Z" fill="url(#flameGrad)"/></g>
+      <g class="flame f3"><path d="M50 95 C43 79.7, 47.2 67.8, 50 61 C52.8 67.8, 57 79.7, 50 95 Z" fill="url(#flameGrad)"/></g>
+      <g class="flame f4"><path d="M61 96 C55 84.3, 58.6 75.2, 61 70 C63.4 75.2, 67 84.3, 61 96 Z" fill="url(#flameGrad)"/></g>
+      <g class="flame f5"><path d="M71 97 C66 88.45, 69 81.8, 71 78 C73 81.8, 76 88.45, 71 97 Z" fill="url(#flameGrad)"/></g>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- Decorative top temple border -->
 <div class="temple-border" aria-hidden="true"></div>
 
 <header class="hero">
+  <svg class="hero-lamp left"  aria-hidden="true"><use href="#vilakku"/></svg>
+  <svg class="hero-lamp right" aria-hidden="true"><use href="#vilakku"/></svg>
   <div class="hero-inner">
-    <div class="lamp lamp-left" aria-hidden="true">🪔</div>
-    <div class="lamp lamp-right" aria-hidden="true">🪔</div>
-    <p class="gurukul">BayArea Nritya Gurukul</p>
+    <div class="logo-plaque"><img src="images/logo.jpg" alt="BayArea Nritya Gurukul" /></div>
     <p class="presents">presents the</p>
     <h1 class="title">Bharatanatyam<br/><span class="title-script">Arangetram</span></h1>
     <p class="of">of</p>
@@ -217,7 +270,7 @@
 </main>
 
 <footer>
-  <div class="lamp" aria-hidden="true">🪔</div>
+  <svg class="footer-lamp" aria-hidden="true"><use href="#vilakku"/></svg>
   <p class="footer-title">Bharatanatyam Arangetram</p>
   <p>Kavyamridula Venkatesan &middot; August 15, 2026</p>
   <p class="footer-sub">BayArea Nritya Gurukul &middot; Cupertino, California</p>
